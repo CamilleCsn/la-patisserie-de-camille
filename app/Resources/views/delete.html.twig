@@ -1,0 +1,32 @@
+{% extends "CamilleBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Supprimer une recette - {{ parent() }}
+{% endblock %}
+
+{% block camilleblog_body %}
+
+	{% include 'views/header.html.twig' %}
+
+	<div class="container">
+
+		<h2>Supprimer une recette</h2>
+
+		<p>
+			Êtes vous cetain de vouloir supprimer la recette "{{recipe.title}}" ?
+		</p>
+
+		{# on met l'id de la recette dans la roule de l'action du form #}
+		<form action="{{ path('camille_blog_delete', {'id': recipe.id}) }}" method="post">
+			<a href="{{ path('camille_blog_view', {'id': recipe.id}) }}" class="btn btn-raised btn-default">
+				<i class="glyphicon glyphicon-chevron-left"></i>
+				Retour à l'annonce
+			</a>
+			<input type="submit" value="supprimer" class="btn btn-danger btn-raised">
+			{# génére le champ CSRF #}
+			{{ form_rest(form) }}
+		</form>
+
+	</div>
+
+{% endblock %}

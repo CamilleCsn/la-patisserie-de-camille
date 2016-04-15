@@ -1,0 +1,70 @@
+.home{
+	height: 100%;
+	background-color: red;
+}
+
+
+.grid {
+	margin: 0 2em 2em;
+	padding: 1em;
+}
+
+.grid-item {
+
+	article {
+		position: relative;
+		background-color: transparent;
+
+		.recipe-title {
+			position: absolute;
+			top: 0px;
+			left: 40px;
+			opacity: 0;
+			font-size: 20px;
+			transition: all 0.35s ease;
+			font-family: 'Noto Serif',serif;
+			z-index: 1;
+		}
+
+		.discover {
+			position: absolute;
+			top: 70px;
+			left: 40px;
+			opacity: 0;
+			font-size: 15px;
+			transition: all 0.35 ease;
+			font-family: 'Noto Serif', serif;
+			z-index: 1;
+		}
+
+		img {
+			padding: 0;
+			transition: transform 0.35s;
+		}
+		
+		&:hover {
+			.recipe-title {
+				opacity: 1;
+			}
+
+			.discover {
+				opacity: 1;
+			}
+
+			img {
+				transform: scale3d(0.95,0.95,1);
+				opacity: 0.95;
+			}
+		}
+	}
+
+}
+
+.thumbnail {
+	margin-bottom: 0px;
+}
+
+.container-home {
+	width: 100%;
+	padding: 0 25px;
+}

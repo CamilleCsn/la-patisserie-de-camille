@@ -1,0 +1,11 @@
+{# Ce template n'hérite de personne, tout comme le template inclus avec {{ include ()}} #}
+
+<ul class="nav nav-pills nav-stacked">
+	{% for recipe in listRecipes %}
+		<li>
+			<a href="{{ path('camille_blog_view', {'id': recipe.id}) }}">
+				{{ recipe.title }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>

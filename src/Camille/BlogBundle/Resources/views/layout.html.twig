@@ -1,0 +1,13 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  Recettes - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+  {# nouveau bloc que les vues du bundle vont venir remplir #}
+  {% block camilleblog_body %}
+  {% endblock %}
+
+{% endblock %}
+

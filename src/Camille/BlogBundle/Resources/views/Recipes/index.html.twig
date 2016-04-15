@@ -1,0 +1,42 @@
+{% extends "CamilleBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block camilleblog_body %}
+
+	{% include 'welcome.html.twig' %}
+
+	{# <h2>Liste des recettes</h2> #}
+
+{# 	{% for flash_message in app.session.flashbag.get('notice') %}
+	    <div class="alert alert-info">
+	        {{ flash_message }}
+	    </div>
+	{% endfor %} #}
+
+{# 	<ul>
+		{% for recipe in listRecipes %}
+			<li>
+				<a href="{{ path('camille_blog_view', {'id': recipe.id}) }}">
+					{{ recipe.title }}
+				</a>
+				par {{ recipe.author }},
+				le {{ recipe.date|date('d/m/Y') }}
+				{% if recipe.thumbnail is not null %}
+					<img 
+						class="thumbnail" 
+						src="{{ asset(recipe.thumbnail.webPath) }}" 
+						alt="{{ recipe.thumbnail.alt }}"
+					/>
+				{% endif %}		
+			</li>
+		{% else %}
+			<li>Pas encore de recettes</li>
+		{% endfor %}
+	</ul> #}
+
+	{% include 'home.html.twig' %}
+
+{% endblock %}

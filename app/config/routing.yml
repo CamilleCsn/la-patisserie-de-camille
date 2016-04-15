@@ -1,0 +1,60 @@
+# nom de la route, unique
+# camille_blog_homepage:
+    # url à laquelle on souhaite que ce qu'on fait soit accessible
+    # path:     /hello/{name}
+    # paramètres de la route : _controller correspond à l'action qu'on veut executer ( ici index) et au controleur (ici Default) qu'on va appeler
+    # defaults: { _controller: CamilleBlogBundle:Default:index }
+
+
+#chacun de ces blocs est une route
+camille_blog_home:
+    #url à capturer
+    path:     /*{page}
+    # paramètres de la route, notamment celui qui dit quel controlleur appeler (ici Recipes)
+    defaults: 
+        _controller: CamilleBlogBundle:Recipes:index 
+        page:    1
+    requirements:
+        page: \d*
+
+camille_blog_view:
+    path:    /recettes/{id}
+    defaults: { _controller: CamilleBlogBundle:Recipes:view }
+    requirements: 
+        id: \d+
+
+camille_blog_add: 
+    path:    /ajouter
+    defaults: { _controller: CamilleBlogBundle:Recipes:add }
+
+camille_blog_edit:
+    path:    /editer/{id}
+    defaults: { _controller: CamilleBlogBundle:Recipes:edit }
+    requirements:
+        id: \d+
+
+camille_blog_delete: 
+    path:    /supprimer/{id}
+    defaults: {_controller: CamilleBlogBundle:Recipes:delete }
+    requirements:
+        id: \d+
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /
+

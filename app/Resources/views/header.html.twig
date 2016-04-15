@@ -1,0 +1,33 @@
+<div class="header"> 
+	<h1 class="title-header"><a href="{{ path('camille_blog_home') }}">La pâtisserie de Camille</a></h1>
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<div class="login">Vous êtes connecté en admin :)</div>
+		<div id="toggle">
+	      <input type="checkbox">
+	      <span></span>
+	      <div class="menu">
+	      	<ul>
+	      		<li>
+	      			<a class="add-recipe" href="{{ path('camille_blog_add') }}">Ajouter une recette</a>
+	      		</li>
+	      		{% if app.request.get('_route') == 'camille_blog_view' %}
+      				<li>
+								<a href="{{ path('camille_blog_edit', {'id': recipe.id}) }}">
+							    Editer la recette
+							  </a>
+							</li>
+							<li>
+								<a href="{{ path('camille_blog_delete', {'id': recipe.id}) }}">
+							    Supprimer la recette
+							  </a>
+							</li>
+						{% endif %}
+	      		<li>
+	      			<a class="log-out" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
+	      		</li>
+	      	</ul>
+	      </div>
+		</div>
+  {% endif %}
+</div>

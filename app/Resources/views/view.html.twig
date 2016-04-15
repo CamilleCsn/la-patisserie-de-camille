@@ -1,0 +1,58 @@
+{% extends "CamilleBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block camilleblog_body %}
+
+	{% include 'views/header.html.twig' %}
+
+	{% if recipe.thumbnail is not null %}
+		<div class="img-holder" data-image="{{ asset(recipe.thumbnail.webPath) }}"></div>
+	{% endif	 %}
+
+	<section class="container">
+		<div class="row">
+
+			<div class="col-xs-12">
+				<h2 class="recipe-title">{{ recipe.title }}</h2>
+			</div>
+
+			<div class="col-xs-6">
+				<div class="author-date">Par {{ recipe.author }}, le {{ recipe.date|date('d/m/Y') }}</div>
+				<div class="ingredients">
+					<div>Ingrédients : </div>
+					{{ recipe.ingredients }}
+				</div>
+			</div>
+
+			<div class="col-xs-6">
+				<div class="recipe-content">
+					{{ recipe.content }}
+				</div>
+			</div>
+		
+		</div>
+		<div class="row container-images">
+			<div class="col-xs-12">
+				{% for i in 0..imageLenght %}
+					{% if portraitImages[i] is defined and portraitImages[i] is not null %}
+						{% for img in portraitImages[i] %}
+							<img src="{{asset(img.webPath)}}" class="image image-portrait" />
+						{% endfor %}
+					{% endif %}
+					{% if landscapeImages[i] is defined and landscapeImages[i] is not null %}
+						{% for img in landscapeImages[i] %}
+							<img src="{{asset(img.webPath)}}" class="image image-landscape" />
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+	</section>
+
+	<a href="#" class="scrollup">Scroll</a>	
+  
+{% endblock %}

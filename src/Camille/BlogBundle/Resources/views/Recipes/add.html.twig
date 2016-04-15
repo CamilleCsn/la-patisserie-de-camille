@@ -1,0 +1,27 @@
+{% extends "CamilleBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Modifier une recette - {{ parent() }}
+{% endblock %}
+
+{% block camilleblog_body %}
+
+	{% include 'views/header.html.twig' %}
+
+	<div class="container">
+		<h2>Ajouter une recette</h2>
+		
+		{{ include("CamilleBlogBundle:Recipes:form.html.twig")}}
+		
+	</div>
+
+	
+	{#<p>
+		<a href="{{ path('camille_blog_view', {'id': recipe.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left">
+				Retour à l'annonce
+			</i> 
+		</a>
+	</p>#}
+
+{% endblock %}

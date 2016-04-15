@@ -1,0 +1,17 @@
+{# étend le layout #}
+{% extends "CamilleBlogBundle::layout.html.twig" %}
+
+{% block body %}
+
+	{# message flash définit par les controlleurs du bundler #}
+	{% for key, message in app.session.flashbag.all() %}
+		<div class="alert alert-{{key}}">
+			{{ message|trans({}, 'FOSUserBundle') }}
+		</div>
+	{% endfor %}
+
+	{# boc pour insérer les autres vues du bundle #}
+	{% block fos_user_content %}
+	{% endblock fos_user_content %}
+
+{% endblock %}

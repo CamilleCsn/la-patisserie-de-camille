@@ -1,0 +1,30 @@
+{% include 'header.html.twig' %}
+<div class="container-home" id="home">
+	<div class="content">
+		<div class="col-xs-12">
+		  <div class="grid">
+		  {% for recipe in recipes %}
+			  		<div class="grid-item" style="height:auto; width: 32%;">
+
+			  			<article>
+					     	{% if recipe.thumbnail is not null %}
+					     		<div class="recipe-title">{{ recipe.title }}</div>
+					     		<div class="discover">Découvrez la recette</div>
+					     		<a href="{{ path('camille_blog_view', {'id': recipe.id}) }}">
+										<img 
+											style="width: 100%"
+											class="" 
+											src="{{ asset(recipe.thumbnail.webPath) }}" 
+											alt="{{ recipe.thumbnail.alt }}"
+										/>
+									</a>
+								{% endif %}	
+
+							</article>
+			  		</div>      
+			    {% endfor %}
+		    </div>
+			{% include 'pagination.html.twig' %}
+		</div>
+	</div>
+</div>
